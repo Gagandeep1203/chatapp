@@ -1,0 +1,90 @@
+.navbar {
+  background-color: var(--navbar-color);
+  color: var(--navbar-text);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 5px var(--shadow-color);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-decoration: none;
+  color: var(--navbar-text);
+  display: flex;
+  align-items: center;
+}
+
+.navbar-brand:hover {
+  color: var(--accent-color);
+}
+
+.navbar-links {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-link {
+  color: var(--navbar-text);
+  text-decoration: none;
+  margin: 0 0.8rem;
+  transition: color 0.2s ease;
+}
+
+.navbar-link:hover {
+  color: var(--accent-color);
+}
+
+.navbar-button {
+  background-color: var(--primary-color);
+  color: var(--button-text);
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-left: 0.8rem;
+}
+
+.navbar-button:hover {
+  background-color: var(--primary-hover);
+}
+
+.theme-toggle {
+  background: transparent;
+  border: none;
+  color: var(--navbar-text);
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-right: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  padding: 0;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive navbar */
+@media (max-width: 576px) {
+  .navbar {
+    padding: 0.8rem;
+  }
+  
+  .navbar-brand {
+    font-size: 1.1rem;
+  }
+  
+  .navbar-link, .navbar-button {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.9rem;
+    margin: 0 0.4rem;
+  }
+} 

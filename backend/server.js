@@ -30,7 +30,7 @@ const app = express();
 const server = http.createServer(app); // Create HTTP server
 const io = new Server(server, { // Initialize Socket.IO
     cors: {
-        origin: process.env.FRONTEND_URL || "http://localhost:3001", // Use env variable or default
+        origin: process.env.FRONTEND_URL || "http://localhost:3000", // Use env variable or default
         methods: ["GET", "POST"]
     }
 });

@@ -1,9 +1,12 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useTheme } from '../context/ThemeContext';
+import './Navbar.css';
 
 const Navbar = () => {
   const { isAuthenticated, logout } = useAuth();
+  const { isDarkMode, toggleTheme } = useTheme();
   const navigate = useNavigate();
 
   const handleLogout = () => {
@@ -11,40 +14,27 @@ const Navbar = () => {
     navigate('/login'); // Redirect to login after logout
   };
 
-  const navStyle = {
-    background: '#333',
-    color: '#fff',
-    padding: '1rem',
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  };
-
-  const linkStyle = {
-    color: 'white',
-    textDecoration: 'none',
-    margin: '0 0.5rem',
-  };
-
-  const buttonStyle = {
-      background: '#555',
-      color: 'white',
-      border: 'none',
-      padding: '0.4rem 0.8rem',
-      borderRadius: '4px',
-      cursor: 'pointer'
-  }
-
   return (
-    <nav style={navStyle}>
-      <Link to="/" style={{ ...linkStyle, fontWeight: 'bold' }}>MERN Chat</Link>
-      <div>
+    <nav className="navbar">
+      <Link to="/" className="navbar-brand">
+        MERN Chat
+      </Link>
+      <div className="navbar-links">
+        <button 
+          className="theme-toggle" 
+          onClick={toggleTheme} 
+          aria-label="Toggle theme"
+          title={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
+        >
+          {isDarkMode ? '☀️' : '🌙'}
+        </button>
+        
         {isAuthenticated ? (
-          <button onClick={handleLogout} style={buttonStyle}>Logout</button>
+          <button onClick={handleLogout} className="navbar-button">Logout</button>
         ) : (
           <>
-            <Link to="/login" style={linkStyle}>Login</Link>
-            <Link to="/register" style={linkStyle}>Register</Link>
+            <Link to="/login" className="navbar-link">Login</Link>
+            <Link to="/register" className="navbar-link">Register</Link>
           </>
         )}
       </div>
